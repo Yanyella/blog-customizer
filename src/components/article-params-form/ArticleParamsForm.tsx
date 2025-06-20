@@ -41,7 +41,28 @@ export class ArticleParamsForm extends Component<ArticleProps, ArticleState> {
 			isOpen: false,
 			formState: props.initState,
 		};
+		this.handleClick = this.handleClick.bind(this);
 	}
+
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClick);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClick);
+	}
+
+	// закрытие формы при клике по оверлей
+
+	handleClick = (event: MouseEvent) => {
+		if (
+			this.state.isOpen &&
+			this.formRef.current &&
+			!this.formRef.current.contains(event.target as Node)
+		) {
+			this.toggleForm();
+		}
+	};
 
 	// переключение меню
 
