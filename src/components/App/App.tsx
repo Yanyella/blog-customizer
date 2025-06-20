@@ -17,7 +17,7 @@ export const App = () => {
 
 	return (
 		<main className={styles.main} style={variableCss as CSSProperties}>
-			<ArticleParamsForm initState={articleState} onChange={setArticleState} />
+			<ArticleParamsForm onChange={setArticleState} />
 			<Article />
 		</main>
 	);

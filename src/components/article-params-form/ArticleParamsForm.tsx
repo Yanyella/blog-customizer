@@ -20,7 +20,6 @@ import { RadioGroup } from 'src/ui/radio-group';
 // описание структуры пропсов
 
 type ArticleProps = {
-	initState: ArticleStateType;
 	onChange: (state: ArticleStateType) => void;
 };
 
@@ -39,7 +38,7 @@ export class ArticleParamsForm extends Component<ArticleProps, ArticleState> {
 		super(props);
 		this.state = {
 			isOpen: false,
-			formState: props.initState,
+			formState: defaultArticleState,
 		};
 		this.handleClick = this.handleClick.bind(this);
 	}
